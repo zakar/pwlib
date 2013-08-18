@@ -49,6 +49,13 @@ PWManager::PWManager()
 
 PWManager::~PWManager()
 {
+    Thread* thread = _ctx->thread_list;
+    Thread* thread_next = NULL;
+    while (thread) {
+       thread_next = thread->next;
+       free(thread);
+       thread = thread_next;
+    }
     free(_ctx);
 }
 
