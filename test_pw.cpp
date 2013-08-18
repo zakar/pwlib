@@ -3,11 +3,14 @@
 
 using namespace PW;
 
+static const int kMaxN = 100000000;
+
 class AClient : public PWBase
 {
 public:
     virtual int Process() 
     {
+        for (int i = 0; i < kMaxN; ++i);
         puts("A");
     }
 };
@@ -17,6 +20,7 @@ class BClient : public PWBase
 public:
     virtual int Process()
     {
+        for (int i = 0; i < kMaxN; ++i);
         puts("B");
     }
 };
